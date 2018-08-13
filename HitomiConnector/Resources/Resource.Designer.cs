@@ -2336,6 +2336,9 @@ namespace HitomiConnector
 			// aapt resource value: 0x7f080035
 			public const int META = 2131230773;
 			
+			// aapt resource value: 0x7f08009d
+			public const int MangaTitle = 2131230877;
+			
 			// aapt resource value: 0x7f080036
 			public const int SHIFT = 2131230774;
 			
@@ -2794,9 +2797,6 @@ namespace HitomiConnector
 			
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoTitle = 2131230825;
-			
-			// aapt resource value: 0x7f08009d
-			public const int textView1 = 2131230877;
 			
 			// aapt resource value: 0x7f08009e
 			public const int textView2 = 2131230878;
