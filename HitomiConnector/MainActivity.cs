@@ -28,11 +28,12 @@ namespace HitomiConnector
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             mangaAdapter = new MangaAdapter1(this);
-           
+          
             Button button = FindViewById<Button>(Resource.Id.button1);
             listView = FindViewById<ListView>(Resource.Id.listView1);
             listView.Adapter = mangaAdapter;
             button.Click += Button_ClickAsync;
+           
         }
 
         private async void Button_ClickAsync(object sender, System.EventArgs e)
@@ -49,7 +50,7 @@ namespace HitomiConnector
                 docs.LoadHtml(responseMessage);
                 var div = docs.DocumentNode.SelectSingleNode("//title");
                 mangaAdapter.AddItem(GetDrawable(Resource.Mipmap.ic_launcher), div.InnerText, "미구현", "미구현");
-               
+                mangaAdapter.NotifyDataSetChanged();
 
 
 

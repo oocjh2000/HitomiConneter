@@ -37,25 +37,25 @@ namespace HitomiConnector
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView;
-            MangaAdapter1ViewHolder holder = null;
-
-            if (view != null)
-                holder = view.Tag as MangaAdapter1ViewHolder;
-
-            if (holder == null)
+            
+            Context context = parent.Context;
+            if (convertView == null)
             {
-                holder = new MangaAdapter1ViewHolder();
                 var inflater = context.GetSystemService(Context.LayoutInflaterService).JavaCast<LayoutInflater>();
                 convertView = inflater.Inflate(Resource.Layout.hitomiadapter, null);
-                view.Tag = holder;
+               
             }
-            ImageView title = view.FindViewById<ImageView>(Resource.Id.imageView1);
-            TextView MangaName = view.FindViewById<TextView>(Resource.Id.MangaTitle);
-            TextView Sense = view.FindViewById<TextView>(Resource.Id.textView2);
-            TextView Tag = view.FindViewById<TextView>(Resource.Id.textView3);
+            ImageView title = convertView.FindViewById<ImageView>(Resource.Id.imageView1);
+            TextView MangaName = convertView.FindViewById<TextView>(Resource.Id.MangaTitle);
+            TextView Sense = convertView.FindViewById<TextView>(Resource.Id.textView2);
+            TextView Tag = convertView.FindViewById<TextView>(Resource.Id.textView3);
 
-            return view;
+            title.SetImageDrawable(mangas[position].drawable);
+            MangaName.Text = mangas[position].title;
+            Sense.Text = mangas[position].Sense;
+            Tag.Text = mangas[position].Tags;
+
+            return convertView;
         }
         public void AddItem(Drawable icon, string title, string sense, string tags)
         {
@@ -66,6 +66,7 @@ namespace HitomiConnector
             manga.title = title;
             manga.Sense = sense;
             manga.Tags = tags;
+            mangas.Add(manga);
         }
         //Fill in cound here, currently 0
         public override int Count => mangas.Count;

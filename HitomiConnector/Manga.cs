@@ -15,7 +15,7 @@ namespace HitomiConnector
 {
     class Manga
     {
-        Drawable drawable;
+        public Drawable drawable;
         public string title;
         public string Sense;
         public string Tags;
